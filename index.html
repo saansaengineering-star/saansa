@@ -1,165 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saansa Engineering & Tech Solution Pvt. Ltd. | Pokhara, Nepal</title>
-  <!-- Tailwind CSS CDN -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saansa Engineering · Pokhara</title>
+  <!-- Tailwind + custom fonts & smooth scroll -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: {
-              blue: '#0F2C59',
-              teal: '#008080',
-              accent: '#F86F03',
-              light: '#F8F9FA'
-            }
-          }
+            brand: { blue: '#0F2C59', teal: '#008080', accent: '#F86F03', light: '#F8F9FA' }
+          },
+          fontFamily: { display: ['Inter', 'system-ui', 'sans-serif'] }
         }
       }
     }
   </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
+    * { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: #faf9f6; }
+    .hero-glow {
+      background: radial-gradient(circle at 20% 30%, #1a3a6a, #091b38 80%);
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .hover-lift {
+      transition: all 0.25s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #F86F03, #f9a15e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-badge {
+      background: rgba(248, 111, 3, 0.08);
+      color: #b35202;
+      border: 1px solid rgba(248, 111, 3, 0.15);
+    }
+    .nav-link {
+      position: relative;
+      font-weight: 500;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      padding: 0.25rem 0;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #F86F03;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+    .nav-link:hover { color: #F86F03; }
+    .img-cover {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .shadow-soft {
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    }
+    .service-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 450;
+    }
+    .service-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #F86F03;
+      font-weight: bold;
+    }
+    .whatwedo-card {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .whatwedo-card:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(248,111,3,0.3);
+    }
+    header .container { height: 64px; }
+    @media (max-width: 768px) {
+      header .container { height: auto; min-height: 60px; }
+    }
+    .header-contact {
+      font-size: 0.75rem;
+      letter-spacing: 0.01em;
+    }
+    .header-contact .separator {
+      opacity: 0.3;
+      margin: 0 4px;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body>
 
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-50 bg-brand-blue text-white shadow-lg">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
-      <div class="flex items-center space-x-3">
-        <div class="bg-brand-accent p-2 rounded-lg font-bold text-xl text-white">S</div>
+  <!-- ===== STICKY NAVBAR – with phone & location inline ===== -->
+  <header class="sticky top-0 z-50 bg-brand-blue/95 backdrop-blur-md text-white shadow-lg border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2 md:py-0 md:h-16">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <div class="bg-gradient-to-br from-brand-accent to-orange-500 p-1.5 rounded-lg font-bold text-lg text-white shadow-md">S</div>
         <div>
-          <span class="font-bold text-lg tracking-wide block leading-none">SAANSA</span>
-          <span class="text-xs text-slate-300 font-light tracking-wider">ENGINEERING & TECH SOLUTION</span>
+          <span class="font-bold text-lg tracking-tight block leading-none">SAANSA</span>
+          <span class="text-[8px] text-slate-300 font-light tracking-[0.2em] uppercase">Engineering & Tech</span>
         </div>
       </div>
-      <nav class="hidden md:flex space-x-8 font-medium">
-        <a href="#about" class="hover:text-brand-accent transition">About Us</a>
-        <a href="#services" class="hover:text-brand-accent transition">Services</a>
-        <a href="#contact" class="hover:text-brand-accent transition">Contact</a>
-      </nav>
-      <a href="#contact" class="bg-brand-accent hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-md shadow transition">
-        Get Quote
-      </a>
+
+      <!-- Desktop Nav + Contact Info inline -->
+      <div class="hidden md:flex items-center gap-6 lg:gap-8">
+        <nav class="flex items-center space-x-5 lg:space-x-7 text-sm font-medium">
+          <a href="#home" class="nav-link text-white/90">Home</a>
+          <a href="#services" class="nav-link text-white/90">Services</a>
+          <a href="#about" class="nav-link text-white/90">About</a>
+          <a href="#contact" class="nav-link text-white/90">Contact</a>
+        </nav>
+        
+        <!-- Phone & Location inline in menu bar -->
+        <div class="flex items-center gap-3 text-xs text-white/80 border-l border-white/20 pl-5">
+          <span class="inline-flex items-center gap-1.5">
+            <span>📞</span> +977-9846285132
+          </span>
+          <span class="text-white/30">|</span>
+          <span class="inline-flex items-center gap-1.5">
+            <span>📍</span> Pokhara · Kaski
+          </span>
+        </div>
+      </div>
+
+      <!-- Mobile toggle -->
+      <div class="flex items-center gap-3 md:hidden">
+        <button id="mobileMenuBtn" class="text-white focus:outline-none text-2xl leading-none">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden bg-brand-blue/95 backdrop-blur-md border-t border-white/10 px-4 py-3 hidden flex-col space-y-2 text-sm font-medium">
+      <a href="#home" class="nav-link text-white/90 block py-1">Home</a>
+      <a href="#services" class="nav-link text-white/90 block py-1">Services</a>
+      <a href="#about" class="nav-link text-white/90 block py-1">About</a>
+      <a href="#contact" class="nav-link text-white/90 block py-1">Contact</a>
+      <div class="flex flex-col gap-1.5 pt-2 border-t border-white/10 mt-1">
+        <span class="text-xs text-white/80">📞 +977-9846285132</span>
+        <span class="text-xs text-white/80">📍 Pokhara · Kaski · Nepal</span>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-r from-slate-900 via-brand-blue to-slate-900 text-white py-24 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto text-center space-y-6">
-      <span class="inline-block bg-teal-900/60 text-teal-300 border border-teal-500/30 text-xs uppercase px-3 py-1.5 rounded-full font-semibold tracking-wider">
-        Registered in Pokhara-08, Kaski
-      </span>
-      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
-        Reliable Engineering, Procurement & Technical Execution
-      </h1>
-      <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-light">
-        Your trusted partner for high-precision technical consultancy, specialized industrial equipment supply, and turn-key installation services across Nepal.
-      </p>
-      <div class="pt-4 flex justify-center gap-4">
-        <a href="#services" class="bg-brand-accent hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-md shadow-lg transition">
-          Explore Services
-        </a>
-        <a href="#contact" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 font-semibold px-6 py-3 rounded-md transition">
-          Contact Us
-        </a>
-      </div>
+  <!-- ===== HOME / HERO – company name prominent, no extra CTAs ===== -->
+  <section id="home" class="hero-glow text-white pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-20 mix-blend-overlay">
+      <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1400&q=80" alt="Engineering consultancy" class="w-full h-full object-cover" />
     </div>
-  </section>
-
-  <!-- Services Grid -->
-  <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-brand-blue">Core Capabilities</h2>
-      <p class="text-slate-600 mt-2">Comprehensive engineering and technological services tailored for institutional & commercial projects.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Service 1 -->
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="w-12 h-12 bg-teal-50 text-brand-teal rounded-lg flex items-center justify-center font-bold text-xl mb-4">01</div>
-        <h3 class="text-xl font-bold text-brand-blue mb-2">Engineering Supply</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Sourcing and supplying certified engineering components, materials, and specialized hardware ensuring international quality benchmarks.</p>
-      </div>
-
-      <!-- Service 2 -->
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="w-12 h-12 bg-teal-50 text-brand-teal rounded-lg flex items-center justify-center font-bold text-xl mb-4">02</div>
-        <h3 class="text-xl font-bold text-brand-blue mb-2">Procurement Management</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">End-to-end strategic procurement services, vendor management, and cost-effective material acquisition for infrastructure projects.</p>
-      </div>
-
-      <!-- Service 3 -->
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="w-12 h-12 bg-teal-50 text-brand-teal rounded-lg flex items-center justify-center font-bold text-xl mb-4">03</div>
-        <h3 class="text-xl font-bold text-brand-blue mb-2">Engineering Consultancy</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Expert advisory, technical feasibility studies, structural/electro-mechanical design support, and technical audit solutions.</p>
-      </div>
-
-      <!-- Service 4 -->
-      <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 hover:shadow-md transition">
-        <div class="w-12 h-12 bg-teal-50 text-brand-teal rounded-lg flex items-center justify-center font-bold text-xl mb-4">04</div>
-        <h3 class="text-xl font-bold text-brand-blue mb-2">Supply & Installation</h3>
-        <p class="text-slate-600 text-sm leading-relaxed">Turnkey delivery and on-site professional installation of heavy machinery, technical plant equipment, and digital tech systems.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Location & Details -->
-  <section id="about" class="bg-slate-100 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="text-brand-accent font-semibold text-sm uppercase">Local Roots, Global Standards</span>
-        <h2 class="text-3xl font-bold text-brand-blue mt-1 mb-4">Based in Pokhara, Serving All of Nepal</h2>
-        <p class="text-slate-600 leading-relaxed mb-4">
-          **Saansa Engineering & Tech Solution Pvt. Ltd.** operates out of Pokhara Ward No. 08, Kaski district. We combine localized industry experience with technical rigor to support public, commercial, and industrial ventures.
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+    
+    <div class="max-w-7xl mx-auto relative z-10">
+      <!-- Hero headline – company name front and center -->
+      <div class="text-center space-y-5 max-w-5xl mx-auto">
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
+          <span class="block text-white">SAANSA</span>
+          <span class="gradient-text text-4xl sm:text-5xl lg:text-6xl">Engineering & Tech Solution</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+          Trusted partner for high-precision technical consultancy, specialized industrial equipment supply, and turn-key installation across Nepal.
         </p>
-        <ul class="space-y-2 text-slate-700 font-medium">
-          <li class="flex items-center gap-2">✓ Registered Engineering Enterprise</li>
-          <li class="flex items-center gap-2">✓ Certified Technical Personnel</li>
-          <li class="flex items-center gap-2">✓ On-Time Procurement & Turnkey Execution</li>
+      </div>
+
+      <!-- ===== "WHAT WE DO" – directly integrated ===== -->
+      <div class="mt-10">
+        <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
+          <!-- Engineering Column -->
+          <div class="whatwedo-card rounded-2xl p-5 lg:p-7 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-brand-accent/40">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-brand-accent/20 text-brand-accent rounded-lg flex items-center justify-center text-xl backdrop-blur-sm">📋</div>
+              <h3 class="text-xl font-bold text-white">Engineering</h3>
+            </div>
+            <ul class="service-list space-y-1.5 text-slate-200/90 text-sm">
+              <li><span class="font-medium text-white">Valuation</span> – precise asset & project valuation</li>
+              <li><span class="font-medium text-white">Cost Estimation</span> – accurate budgeting & planning</li>
+              <li><span class="font-medium text-white">Detail Engineering</span> – in-depth design & drawings</li>
+              <li><span class="font-medium text-white">Construction Supervision</span> – on-site quality control</li>
+              <li><span class="font-medium text-white">Final Billing</span> – meticulous project close-out</li>
+            </ul>
+            <div class="mt-4 pt-3 border-t border-white/10">
+              <span class="inline-block bg-brand-accent/20 text-brand-accent text-[10px] font-semibold px-3 py-1 rounded-full backdrop-blur-sm">End-to-end support</span>
+            </div>
+          </div>
+
+          <!-- Supply Column -->
+          <div class="whatwedo-card rounded-2xl p-5 lg:p-7 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-brand-accent/40">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 bg-brand-accent/20 text-brand-accent rounded-lg flex items-center justify-center text-xl backdrop-blur-sm">📦</div>
+              <h3 class="text-xl font-bold text-white">Supply</h3>
+            </div>
+            <ul class="service-list space-y-1.5 text-slate-200/90 text-sm">
+              <li><span class="font-medium text-white">Engineering Goods</span> – certified materials</li>
+              <li><span class="font-medium text-white">Industrial Equipment</span> – heavy machinery & tools</li>
+              <li><span class="font-medium text-white">Structural Components</span> – steel, fittings, etc.</li>
+              <li><span class="font-medium text-white">Electrical & Instrumentation</span> – panels, sensors</li>
+              <li><span class="font-medium text-white">Consumables & Spares</span> – reliable supplies</li>
+            </ul>
+            <div class="mt-4 pt-3 border-t border-white/10">
+              <span class="inline-block bg-brand-accent/20 text-brand-accent text-[10px] font-semibold px-3 py-1 rounded-full backdrop-blur-sm">Global sourcing · Quality assured</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- extra badge: installation -->
+        <div class="mt-5 text-center">
+          <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm text-white/90 px-5 py-2 rounded-full text-xs font-medium border border-white/15">
+            ⚡ Plus: Turnkey Installation & Project Execution
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#faf9f6] to-transparent"></div>
+  </section>
+
+  <!-- ===== SERVICES (core capabilities) ===== -->
+  <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-14">
+      <span class="inline-block section-badge text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Core Capabilities</span>
+      <h2 class="text-3xl font-bold text-brand-blue">Our Service Pillars</h2>
+      <p class="text-slate-500 mt-1 max-w-2xl mx-auto text-sm">Comprehensive engineering and technological services tailored for institutional & commercial projects.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- 1 -->
+      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
+        <div class="h-40 overflow-hidden bg-slate-200">
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Engineering supply" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">⚙️</div>
+          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Engineering Supply</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Sourcing certified engineering components, materials, and hardware ensuring international quality.</p>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
+        <div class="h-40 overflow-hidden bg-slate-200">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Procurement management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">📦</div>
+          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Procurement Management</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">End-to-end strategic procurement, vendor management, and cost-effective acquisition.</p>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
+        <div class="h-40 overflow-hidden bg-slate-200">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Engineering consultancy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">📐</div>
+          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Engineering Consultancy</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Expert advisory, feasibility studies, structural/electro-mechanical design, and technical audit.</p>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
+        <div class="h-40 overflow-hidden bg-slate-200">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Supply & installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5">
+          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">🔧</div>
+          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Supply & Installation</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">Turnkey delivery and professional on-site installation of heavy machinery, plant equipment, and tech systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="bg-slate-100/80 py-16 border-y border-slate-200/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-block text-brand-accent font-bold text-xs uppercase tracking-[0.2em] mb-2">Local Roots, Global Standards</span>
+        <h2 class="text-3xl font-bold text-brand-blue mt-1 mb-3 leading-tight">Based in Pokhara,<br />Serving All of Nepal</h2>
+        <p class="text-slate-600 leading-relaxed mb-4 text-base font-light">
+          <span class="font-semibold text-brand-blue">Saansa Engineering & Tech Solution Pvt. Ltd.</span> operates out of Pokhara Ward No. 08, Kaski district. We combine localized industry experience with technical rigor to support public, commercial, and industrial ventures.
+        </p>
+        <ul class="space-y-2 text-slate-700 font-medium text-sm">
+          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> Registered Engineering Enterprise</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> Certified Technical Personnel</li>
+          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> On-Time Procurement & Turnkey Execution</li>
         </ul>
       </div>
 
-      <div class="bg-white p-8 rounded-xl shadow border border-slate-200 space-y-4">
-        <h3 class="text-lg font-bold text-brand-blue border-b pb-2">Company Information</h3>
-        <div>
-          <span class="text-xs text-slate-400 uppercase font-semibold block">Registered Address</span>
-          <span class="font-medium text-slate-700">Pokhara - 08, Kaski, Gandaki Province, Nepal</span>
-        </div>
-        <div>
-          <span class="text-xs text-slate-400 uppercase font-semibold block">Primary Focus</span>
-          <span class="font-medium text-slate-700">Engineering Consultancy, Procurement & Equipment Installation</span>
+      <div class="glass-card p-5 rounded-2xl shadow-xl border border-white/40 backdrop-blur-sm bg-white/70">
+        <img src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=800&q=80" alt="Engineering team" class="rounded-xl w-full h-48 object-cover shadow-md mb-4" />
+        <h3 class="text-xl font-bold text-brand-blue border-b border-slate-200/60 pb-2 mb-3 flex items-center gap-2">
+          <span class="text-brand-accent">⏺</span> Company Information
+        </h3>
+        <div class="space-y-3 text-sm">
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Registered Address</span>
+            <span class="font-semibold text-slate-800">Pokhara - 08, Kaski, Gandaki Province, Nepal</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Primary Focus</span>
+            <span class="font-semibold text-slate-800">Engineering Consultancy, Procurement & Equipment Installation</span>
+          </div>
+          <div class="pt-1 flex gap-2 flex-wrap">
+            <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-3 py-1 rounded-full">ISO-compliant</span>
+            <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-3 py-1 rounded-full">Industrial Experts</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 max-w-4xl mx-auto px-4">
-    <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-200">
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-16 max-w-4xl mx-auto px-4">
+    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-slate-200/60 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-24 h-1 bg-gradient-to-r from-brand-accent to-orange-400 rounded-br-full"></div>
       <div class="text-center mb-8">
+        <span class="inline-block section-badge text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Let’s work together</span>
         <h2 class="text-3xl font-bold text-brand-blue">Contact Our Engineering Team</h2>
-        <p class="text-slate-600 mt-2">Send us your project requirements or RFQs directly.</p>
+        <p class="text-slate-500 mt-1 text-sm">Send us your project requirements or RFQs directly.</p>
+        <div class="mt-2 inline-flex items-center gap-2 bg-brand-blue/5 px-4 py-2 rounded-full text-brand-blue font-medium text-sm border border-brand-blue/10">
+          📞 +977-9846285132
+        </div>
       </div>
 
-      <form class="space-y-6" onsubmit="event.preventDefault(); alert('Inquiry sent successfully!');">
-        <div class="grid md:grid-cols-2 gap-6">
+      <form class="space-y-5" onsubmit="event.preventDefault(); alert('✅ Inquiry sent successfully! Our team will reach out within 24 hours.');">
+        <div class="grid md:grid-cols-2 gap-5">
           <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Full Name / Organization</label>
-            <input type="text" required class="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue">
+            <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name / Organization</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="e.g. ABC Construction" />
           </div>
           <div>
-            <label class="block text-sm font-medium text-slate-700 mb-1">Phone / Email</label>
-            <input type="text" required class="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue">
+            <label class="block text-sm font-semibold text-slate-700 mb-1">Phone / Email</label>
+            <input type="text" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="info@saansa.com" />
           </div>
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Service Required</label>
-          <select class="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue">
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Service Required</label>
+          <select class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 appearance-none text-sm">
             <option>Engineering Consultancy</option>
             <option>Procurement Management</option>
             <option>Engineering Material Supply</option>
@@ -168,21 +370,36 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-slate-700 mb-1">Project Details / Message</label>
-          <textarea rows="4" required class="w-full border border-slate-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue" placeholder="Describe your project requirements..."></textarea>
+          <label class="block text-sm font-semibold text-slate-700 mb-1">Project Details / Message</label>
+          <textarea rows="4" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="Describe your project requirements in detail..."></textarea>
         </div>
 
-        <button type="submit" class="w-full bg-brand-blue hover:bg-slate-800 text-white font-bold py-3.5 rounded-md transition shadow-md">
-          Submit Inquiry
+        <button type="submit" class="w-full bg-gradient-to-r from-brand-blue to-slate-800 hover:from-slate-800 hover:to-brand-blue text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-xl shadow-brand-blue/10 hover:shadow-brand-blue/30 text-base tracking-wide">
+          🚀 Submit Inquiry
         </button>
       </form>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800">
-    <p>© Saansa Engineering and Tech Solution Pvt. Ltd. | Pokhara-08, Kaski, Nepal</p>
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm border-t border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <span>© Saansa Engineering and Tech Solution Pvt. Ltd. · Pokhara-08, Kaski, Nepal</span>
+      <span class="text-xs tracking-widest text-slate-500">📞 +977-9846285132</span>
+    </div>
   </footer>
+
+  <!-- Mobile menu toggle -->
+  <script>
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileMenu')?.classList.add('hidden');
+      });
+    });
+  </script>
 
 </body>
 </html>
