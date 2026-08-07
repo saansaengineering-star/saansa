@@ -306,7 +306,7 @@
         </div>
 
         <form id="contactForm" class="space-y-5">
-          <!-- Hidden title input to fulfill {{title}} requirement in EmailJS template subject line -->
+          <!-- Title variable for EmailJS template -->
           <input type="hidden" name="title" value="Website Inquiry - Saansa Engineering" />
 
           <div class="grid md:grid-cols-2 gap-5">
@@ -398,8 +398,8 @@
       btnSpinner.classList.remove('hidden');
       submitBtn.disabled = true;
 
-      // Service ID: service_62zb3py | Template ID: template_yba0vs6
-      emailjs.sendForm('service_62zb3py', 'template_yba0vs6', this)
+      // Service ID: service_62zb3py | Template ID: template_80beklp
+      emailjs.sendForm('service_62zb3py', 'template_80beklp', this)
         .then(function (response) {
           console.log('SUCCESS!', response.status, response.text);
           formStatus.textContent = '✅ Thank you! Your message has been sent successfully.';
