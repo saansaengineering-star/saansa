@@ -326,7 +326,7 @@
             <input type="text" name="name" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="e.g. ABC Construction" />
           </div>
           <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-1">Phone / Email</label>
+            <label class="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
             <input type="email" name="email" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="info@saansa.com" />
           </div>
         </div>
@@ -374,8 +374,8 @@
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
     (function () {
-      // Replace with your actual Public Key from your EmailJS account dashboard
-      emailjs.init("YOUR_PUBLIC_KEY");
+      // Initialize with your Public Key
+      emailjs.init("B966OCPM23prG7g5F");
     })();
 
     // Mobile menu toggle logic
@@ -403,9 +403,8 @@
       submitBtn.classList.add('btn-loading');
       submitBtn.disabled = true;
 
-      // Send form data via EmailJS to saansaengineering@gmail.com
-      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with values from your EmailJS dashboard
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      // Send form data via EmailJS using your configured IDs
+      emailjs.sendForm('service_62zb3py', 'template_80beklp', this)
         .then(function () {
           formStatus.textContent = '✅ Thank you! Your message has been sent successfully.';
           formStatus.className = 'text-center text-sm font-medium text-emerald-600 block mt-3';
