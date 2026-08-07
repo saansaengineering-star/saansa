@@ -4,139 +4,59 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saansa Engineering · Pokhara</title>
-  <!-- Tailwind + custom fonts & smooth scroll -->
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            brand: { blue: '#0F2C59', teal: '#008080', accent: '#F86F03', light: '#F8F9FA' }
+            brand: {
+              blue: '#0F2C59',
+              teal: '#008080',
+              accent: '#F86F03',
+              light: '#F8F9FA'
+            }
           },
-          fontFamily: { display: ['Inter', 'system-ui', 'sans-serif'] }
+          fontFamily: {
+            display: ['Inter', 'system-ui', 'sans-serif']
+          }
         }
       }
     }
   </script>
+  
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
     * { scroll-behavior: smooth; }
     body { font-family: 'Inter', system-ui, sans-serif; background: #faf9f6; }
-    .hero-glow {
-      background: radial-gradient(circle at 20% 30%, #1a3a6a, #091b38 80%);
-    }
-    .glass-card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .hover-lift {
-      transition: all 0.25s ease;
-    }
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #F86F03, #f9a15e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .section-badge {
-      background: rgba(248, 111, 3, 0.08);
-      color: #b35202;
-      border: 1px solid rgba(248, 111, 3, 0.15);
-    }
-    .nav-link {
-      position: relative;
-      font-weight: 500;
-      font-size: 0.85rem;
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
-      padding: 0.25rem 0;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #F86F03;
-      transition: width 0.25s ease;
-    }
+    .hero-glow { background: radial-gradient(circle at 20% 30%, #1a3a6a, #091b38 80%); }
+    .glass-card { background: rgba(255,255,255,0.75); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.3); }
+    .hover-lift { transition: all 0.25s ease; }
+    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15); }
+    .gradient-text { background: linear-gradient(135deg, #F86F03, #f9a15e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-badge { background: rgba(248, 111, 3, 0.08); color: #b35202; border: 1px solid rgba(248, 111, 3, 0.15); }
+    .nav-link { position: relative; font-weight: 500; font-size: 0.85rem; letter-spacing: 0.02em; transition: color 0.2s; padding: 0.25rem 0; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #F86F03; transition: width 0.25s ease; }
     .nav-link:hover::after { width: 100%; }
     .nav-link:hover { color: #F86F03; }
-    .img-cover {
-      object-fit: cover;
-      width: 100%;
-      height: 100%;
-    }
-    .shadow-soft {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-    }
-    .service-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 450;
-    }
-    .service-list li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #F86F03;
-      font-weight: bold;
-    }
-    .whatwedo-card {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .whatwedo-card:hover {
-      background: rgba(255,255,255,0.12);
-      border-color: rgba(248,111,3,0.3);
-    }
+    .img-cover { object-fit: cover; width: 100%; height: 100%; }
+    .shadow-soft { box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
+    .service-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; font-weight: 450; }
+    .service-list li::before { content: "▹"; position: absolute; left: 0; color: #F86F03; font-weight: bold; }
+    .whatwedo-card { background: rgba(255,255,255,0.06); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.08); }
+    .whatwedo-card:hover { background: rgba(255,255,255,0.12); border-color: rgba(248,111,3,0.3); }
     header .container { height: 64px; }
-    @media (max-width: 768px) {
-      header .container { height: auto; min-height: 60px; }
-    }
-    .header-contact {
-      font-size: 0.75rem;
-      letter-spacing: 0.01em;
-    }
-    .header-contact .separator {
-      opacity: 0.3;
-      margin: 0 4px;
-    }
-    .project-card {
-      transition: all 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.12);
-    }
+    @media (max-width: 768px) { header .container { height: auto; min-height: 60px; } }
+    .header-contact { font-size: 0.75rem; letter-spacing: 0.01em; }
+    .header-contact .separator { opacity: 0.3; margin: 0 4px; }
+    .project-card { transition: all 0.3s ease; }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px -8px rgba(0,0,0,0.12); }
     /* Loading spinner */
-    .spinner {
-      border: 3px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      border-top: 3px solid #fff;
-      width: 24px;
-      height: 24px;
-      animation: spin 0.8s linear infinite;
-      display: inline-block;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    .btn-loading {
-      opacity: 0.7;
-      cursor: not-allowed;
-    }
+    .spinner { border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top: 3px solid #fff; width: 24px; height: 24px; animation: spin 0.8s linear infinite; display: inline-block; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    .btn-loading { opacity: 0.7; cursor: not-allowed; }
   </style>
 </head>
 <body>
@@ -151,7 +71,6 @@
           <span class="text-[8px] text-slate-300 font-light tracking-[0.2em] uppercase">Engineering & Tech</span>
         </div>
       </div>
-
       <div class="hidden md:flex items-center gap-6 lg:gap-8">
         <nav class="flex items-center space-x-5 lg:space-x-7 text-sm font-medium">
           <a href="#home" class="nav-link text-white/90">Home</a>
@@ -160,19 +79,17 @@
           <a href="#about" class="nav-link text-white/90">About</a>
           <a href="#contact" class="nav-link text-white/90">Contact</a>
         </nav>
-        
         <div class="flex items-center gap-3 text-xs text-white/80 border-l border-white/20 pl-5">
           <span class="inline-flex items-center gap-1.5">📞 +977-9846285132</span>
           <span class="text-white/30">|</span>
           <span class="inline-flex items-center gap-1.5">📍 Pokhara · Kaski</span>
         </div>
       </div>
-
       <div class="flex items-center gap-3 md:hidden">
         <button id="mobileMenuBtn" class="text-white focus:outline-none text-2xl leading-none">☰</button>
       </div>
     </div>
-
+    
     <div id="mobileMenu" class="md:hidden bg-brand-blue/95 backdrop-blur-md border-t border-white/10 px-4 py-3 hidden flex-col space-y-2 text-sm font-medium">
       <a href="#home" class="nav-link text-white/90 block py-1">Home</a>
       <a href="#services" class="nav-link text-white/90 block py-1">Services</a>
@@ -204,10 +121,9 @@
         </p>
       </div>
 
-      <!-- ===== "WHAT WE DO" ===== -->
+      <!-- WHAT WE DO -->
       <div class="mt-10">
         <div class="grid md:grid-cols-2 gap-5 lg:gap-6">
-          <!-- Engineering Column -->
           <div class="whatwedo-card rounded-2xl p-5 lg:p-7 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-brand-accent/40">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 bg-brand-accent/20 text-brand-accent rounded-lg flex items-center justify-center text-xl backdrop-blur-sm">📋</div>
@@ -225,7 +141,6 @@
             </div>
           </div>
 
-          <!-- Machinery & Equipment Solutions -->
           <div class="whatwedo-card rounded-2xl p-5 lg:p-7 transition-all duration-300 backdrop-blur-sm border border-white/10 hover:border-brand-accent/40">
             <div class="flex items-center gap-3 mb-4">
               <div class="w-10 h-10 bg-brand-accent/20 text-brand-accent rounded-lg flex items-center justify-center text-xl backdrop-blur-sm">🔧</div>
@@ -251,7 +166,6 @@
         </div>
       </div>
     </div>
-
     <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#faf9f6] to-transparent"></div>
   </section>
 
@@ -274,6 +188,7 @@
           <p class="text-slate-600 text-sm leading-relaxed">Sourcing certified engineering components, materials, and hardware ensuring international quality.</p>
         </div>
       </div>
+
       <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
         <div class="h-40 overflow-hidden bg-slate-200">
           <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Procurement management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -284,6 +199,7 @@
           <p class="text-slate-600 text-sm leading-relaxed">End-to-end strategic procurement, vendor management, and cost-effective acquisition.</p>
         </div>
       </div>
+
       <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
         <div class="h-40 overflow-hidden bg-slate-200">
           <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Engineering consultancy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -294,6 +210,7 @@
           <p class="text-slate-600 text-sm leading-relaxed">Expert advisory, feasibility studies, structural/electro-mechanical design, and technical audit.</p>
         </div>
       </div>
+
       <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
         <div class="h-40 overflow-hidden bg-slate-200">
           <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Supply & installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
@@ -324,6 +241,7 @@
             <p class="text-slate-600 text-sm mt-1">Complete engineering consultancy and construction supervision for municipal infrastructure projects in Gandaki Province.</p>
           </div>
         </div>
+
         <div class="project-card bg-white rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Industrial equipment supply" class="w-full h-48 object-cover" />
           <div class="p-5">
@@ -331,6 +249,7 @@
             <p class="text-slate-600 text-sm mt-1">Procurement and supply of heavy machinery and specialized equipment for manufacturing plants across Nepal.</p>
           </div>
         </div>
+
         <div class="project-card bg-white rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
           <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Turnkey installation" class="w-full h-48 object-cover" />
           <div class="p-5">
@@ -386,10 +305,11 @@
     </div>
   </section>
 
-  <!-- ===== CONTACT with EmailJS ===== -->
+  <!-- ===== CONTACT FORM ===== -->
   <section id="contact" class="py-16 max-w-4xl mx-auto px-4">
     <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-slate-200/60 relative overflow-hidden">
       <div class="absolute top-0 left-0 w-24 h-1 bg-gradient-to-r from-brand-accent to-orange-400 rounded-br-full"></div>
+      
       <div class="text-center mb-8">
         <span class="inline-block section-badge text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Let's work together</span>
         <h2 class="text-3xl font-bold text-brand-blue">Contact Our Engineering Team</h2>
@@ -399,7 +319,6 @@
         </div>
       </div>
 
-      <!-- FORM with EmailJS integration -->
       <form id="contactForm" class="space-y-5">
         <div class="grid md:grid-cols-2 gap-5">
           <div>
@@ -436,8 +355,8 @@
           <span id="btnText">🚀 Submit Inquiry</span>
           <span id="btnSpinner" class="hidden"><span class="spinner"></span></span>
         </button>
-        
-        <!-- Status message -->
+
+        <!-- Status Notification -->
         <div id="formStatus" class="text-center text-sm font-medium hidden"></div>
       </form>
     </div>
@@ -451,80 +370,59 @@
     </div>
   </footer>
 
-  <!-- ===== EMAILJS INTEGRATION ===== -->
-  <!-- Load EmailJS SDK -->
+  <!-- ===== EMAILJS INTEGRATION SCRIPT ===== -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
-    (function() {
-      // ✅ REPLACE WITH YOUR ACTUAL KEYS FROM EMAILJS DASHBOARD
-      const PUBLIC_KEY = "YOUR_PUBLIC_KEY";      // From EmailJS Account → API Keys
-      const SERVICE_ID = "YOUR_SERVICE_ID";      // From EmailJS Dashboard → Email Services
-      const TEMPLATE_ID = "YOUR_TEMPLATE_ID";    // From EmailJS Dashboard → Email Templates
-      
-      // Initialize EmailJS
-      emailjs.init(PUBLIC_KEY);
+    (function () {
+      // Replace with your actual Public Key from your EmailJS account dashboard
+      emailjs.init("YOUR_PUBLIC_KEY");
+    })();
 
-      // Get form elements
-      const form = document.getElementById('contactForm');
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        mobileMenu.classList.toggle('flex');
+      });
+    }
+
+    // Contact Form submission logic
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
       const submitBtn = document.getElementById('submitBtn');
       const btnText = document.getElementById('btnText');
       const btnSpinner = document.getElementById('btnSpinner');
       const formStatus = document.getElementById('formStatus');
 
-      // Form submit handler
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
+      // Show loading spinner state
+      btnText.classList.add('hidden');
+      btnSpinner.classList.remove('hidden');
+      submitBtn.classList.add('btn-loading');
+      submitBtn.disabled = true;
 
-        // Show loading state
-        submitBtn.disabled = true;
-        submitBtn.classList.add('btn-loading');
-        btnText.textContent = 'Sending...';
-        btnSpinner.classList.remove('hidden');
-        formStatus.classList.add('hidden');
-
-        // Send email using EmailJS
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
-          .then(function(response) {
-            // Success
-            formStatus.className = 'text-center text-sm font-medium text-green-600 bg-green-50 border border-green-200 rounded-xl p-3 mt-2';
-            formStatus.textContent = '✅ Inquiry sent successfully! Our team will reach out within 24 hours.';
-            formStatus.classList.remove('hidden');
-            form.reset();
-            
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('btn-loading');
-            btnText.textContent = '🚀 Submit Inquiry';
-            btnSpinner.classList.add('hidden');
-          })
-          .catch(function(error) {
-            // Error
-            console.error('EmailJS Error:', error);
-            formStatus.className = 'text-center text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-xl p-3 mt-2';
-            formStatus.textContent = '❌ Failed to send message. Please try again or call us directly.';
-            formStatus.classList.remove('hidden');
-            
-            // Reset button
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('btn-loading');
-            btnText.textContent = '🚀 Submit Inquiry';
-            btnSpinner.classList.add('hidden');
-          });
-      });
-    })();
-  </script>
-
-  <!-- Mobile menu toggle -->
-  <script>
-    document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobileMenu')?.classList.add('hidden');
-      });
+      // Send form data via EmailJS to saansaengineering@gmail.com
+      // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with values from your EmailJS dashboard
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(function () {
+          formStatus.textContent = '✅ Thank you! Your message has been sent successfully.';
+          formStatus.className = 'text-center text-sm font-medium text-emerald-600 block mt-3';
+          document.getElementById('contactForm').reset();
+        }, function (error) {
+          console.error('EmailJS Error:', error);
+          formStatus.textContent = '❌ Failed to send message. Please check your config or try again.';
+          formStatus.className = 'text-center text-sm font-medium text-red-600 block mt-3';
+        })
+        .finally(function () {
+          // Reset button state
+          btnText.classList.remove('hidden');
+          btnSpinner.classList.add('hidden');
+          submitBtn.classList.remove('btn-loading');
+          submitBtn.disabled = false;
+        });
     });
   </script>
-
 </body>
 </html>
