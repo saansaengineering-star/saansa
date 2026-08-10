@@ -129,24 +129,32 @@
       opacity: 0.7;
       cursor: not-allowed;
     }
-    /* Hero logo topper — the first thing visitors see */
-    .hero-logo-topper {
+    /* Hero corner logo badge — floats over the hero, adds zero vertical space */
+    .hero-logo-corner {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      z-index: 30;
       background: #ffffff;
-      border-radius: 20px;
-      padding: 14px 20px;
-      box-shadow: 0 20px 45px -12px rgba(0,0,0,0.45);
+      border-radius: 14px;
+      padding: 8px 12px;
+      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.5);
       display: inline-flex;
       align-items: center;
-      justify-content: center;
     }
-    .hero-logo-topper img {
-      height: 74px;
+    .hero-logo-corner img {
+      height: 46px;
       width: auto;
       display: block;
     }
     @media (max-width: 640px) {
-      .hero-logo-topper { padding: 10px 16px; border-radius: 16px; }
-      .hero-logo-topper img { height: 52px; }
+      .hero-logo-corner {
+        top: 14px;
+        left: 14px;
+        padding: 6px 9px;
+        border-radius: 10px;
+      }
+      .hero-logo-corner img { height: 34px; }
     }
   </style>
 </head>
@@ -192,6 +200,10 @@
 
   <!-- ===== HOME / HERO ===== -->
   <section id="home" class="hero-glow text-white pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+    <!-- Logo badge, floats in the corner — takes up no vertical space -->
+    <div class="hero-logo-corner hover-lift">
+      <img src="assets/logo.jpeg" alt="Saansa Engineering & Tech Solution logo" />
+    </div>
     <div class="absolute inset-0 opacity-20 mix-blend-overlay">
       <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1400&q=80" alt="Engineering consultancy" class="w-full h-full object-cover" />
     </div>
@@ -199,11 +211,6 @@
     
     <div class="max-w-7xl mx-auto relative z-10">
       <div class="text-center space-y-5 max-w-5xl mx-auto">
-        <div class="flex justify-center mb-2">
-          <div class="hero-logo-topper hover-lift">
-            <img src="assets/logo.jpeg" alt="Saansa Engineering & Tech Solution logo" />
-          </div>
-        </div>
         <h1 class="text-5xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
           <span class="block text-white">SAANSA</span>
           <span class="gradient-text text-4xl sm:text-5xl lg:text-6xl">Engineering & Tech Solution</span>
