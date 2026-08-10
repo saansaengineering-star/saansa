@@ -129,21 +129,37 @@
       opacity: 0.7;
       cursor: not-allowed;
     }
-    /* Logo */
-    .brand-logo {
+    /* Hero seal badge */
+    .hero-seal {
+      position: absolute;
+      left: 50%;
+      bottom: -55px;
+      transform: translateX(-50%);
+      width: 130px;
+      height: 130px;
+      border-radius: 9999px;
       background: #ffffff;
-      border-radius: 8px;
-      padding: 4px 8px;
-      display: inline-flex;
-      align-items: center;
+      padding: 10px;
+      box-shadow: 0 15px 35px -8px rgba(0,0,0,0.35), 0 0 0 6px rgba(255,255,255,0.08);
+      z-index: 20;
+      transition: transform 0.3s ease;
     }
-    .brand-logo img {
-      height: 52px;
-      width: auto;
-      display: block;
+    .hero-seal:hover {
+      transform: translateX(-50%) translateY(-6px) rotate(-3deg);
     }
-    @media (max-width: 480px) {
-      .brand-logo img { height: 40px; }
+    .hero-seal img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 9999px;
+    }
+    @media (max-width: 640px) {
+      .hero-seal {
+        width: 92px;
+        height: 92px;
+        bottom: -40px;
+        padding: 7px;
+      }
     }
   </style>
 </head>
@@ -153,9 +169,11 @@
   <header class="sticky top-0 z-50 bg-brand-blue/95 backdrop-blur-md text-white shadow-lg border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2 md:py-0 md:h-16">
       <div class="flex items-center space-x-2">
-        <a href="#home" class="brand-logo hover-lift">
-          <img src="assets/logo.jpeg" alt="Saansa Engineering & Tech Solution logo" />
-        </a>
+        <div class="bg-gradient-to-br from-brand-accent to-orange-500 p-1.5 rounded-lg font-bold text-lg text-white shadow-md">S</div>
+        <div>
+          <span class="font-bold text-lg tracking-tight block leading-none">SAANSA</span>
+          <span class="text-[8px] text-slate-300 font-light tracking-[0.2em] uppercase">Engineering & Tech</span>
+        </div>
       </div>
 
       <nav class="hidden md:flex items-center space-x-5 lg:space-x-7 text-sm font-medium">
@@ -262,10 +280,15 @@
     </div>
 
     <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-[#faf9f6] to-transparent"></div>
+
+    <!-- Floating logo seal, overlapping into the Services section -->
+    <div class="hero-seal">
+      <img src="assets/logo.jpeg" alt="Saansa Engineering & Tech Solution logo" />
+    </div>
   </section>
 
   <!-- ===== SERVICES ===== -->
-  <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section id="services" class="pt-28 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div class="text-center mb-14">
       <span class="inline-block section-badge text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Core Capabilities</span>
       <h2 class="text-3xl font-bold text-brand-blue">Our Service Pillars</h2>
