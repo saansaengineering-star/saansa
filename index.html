@@ -1,648 +1,454 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saansa Engineering & Tech Solution · Pokhara</title>
-  <link rel="icon" type="image/jpeg" href="assets/logo.jpeg" />
-  <link rel="apple-touch-icon" href="assets/logo.jpeg" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { blue: '#0F2C59', teal: '#008080', accent: '#F86F03', light: '#F8F9FA' }
-          },
-          fontFamily: { display: ['Inter', 'system-ui', 'sans-serif'] }
-        }
-      }
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap');
-    * { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; background: #faf9f6; }
-
-    .hero-glow {
-      background: radial-gradient(circle at 15% 20%, #1a3a6a, #091b38 75%);
-    }
-    .glass-card {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .hover-lift { transition: all 0.25s ease; }
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
-    }
-    .gradient-text {
-      background: linear-gradient(135deg, #F86F03, #f9a15e);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    .section-badge {
-      background: rgba(248, 111, 3, 0.08);
-      color: #b35202;
-      border: 1px solid rgba(248, 111, 3, 0.15);
-    }
-    .nav-link {
-      position: relative;
-      font-weight: 500;
-      font-size: 0.85rem;
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
-      padding: 0.25rem 0;
-    }
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0; width: 0; height: 2px;
-      background: #F86F03;
-      transition: width 0.25s ease;
-    }
-    .nav-link:hover::after { width: 100%; }
-    .nav-link:hover { color: #F86F03; }
-    .shadow-soft { box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
-    .service-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 450;
-    }
-    .service-list li::before {
-      content: "▹";
-      position: absolute; left: 0;
-      color: #F86F03; font-weight: bold;
-    }
-    .whatwedo-card {
-      background: #ffffff;
-      border: 1px solid rgba(15,44,89,0.08);
-    }
-    .whatwedo-card:hover { border-color: rgba(248,111,3,0.35); }
-    .project-card { transition: all 0.3s ease; }
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px -8px rgba(0,0,0,0.12);
-    }
-    .spinner {
-      border: 3px solid rgba(255,255,255,0.3);
-      border-radius: 50%;
-      border-top: 3px solid #fff;
-      width: 24px; height: 24px;
-      animation: spin 0.8s linear infinite;
-      display: inline-block;
-    }
-    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .btn-loading { opacity: 0.7; cursor: not-allowed; }
-
-    /* Navbar logo */
-    .nav-logo img {
-      height: 42px;
-      width: auto;
-      display: block;
-      border-radius: 6px;
-    }
-    @media (max-width: 480px) {
-      .nav-logo img { height: 34px; }
-    }
-
-    /* Stats bar — floats between hero and next section */
-    .stats-bar {
-      position: relative;
-      margin-top: -64px;
-      z-index: 20;
-    }
-    @media (max-width: 768px) {
-      .stats-bar { margin-top: -40px; }
-    }
-    .stat-num {
-      font-size: 2.1rem;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    /* Process steps */
-    .process-step {
-      position: relative;
-    }
-    .process-num {
-      font-size: 3rem;
-      font-weight: 800;
-      color: rgba(15,44,89,0.08);
-      line-height: 1;
-    }
-
-    /* Footer logo */
-    .footer-logo img {
-      height: 40px;
-      width: auto;
-      border-radius: 6px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saansa Engineering and Tech Solutions | Insurance Surveyor, Valuation, MEP &amp; Design Consultancy, Pokhara</title>
+  <meta name="description" content="Saansa Engineering and Tech Solutions Private Limited offers insurance survey, property valuation, municipal drawing, architectural and MEP design, and consultancy from design to supervision and final billing in Nepal.">
+  <meta property="og:title" content="Saansa Engineering and Tech Solutions Private Limited">
+  <meta property="og:description" content="Insurance survey, property valuation, municipal drawing, MEP design and engineering consultancy.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/logo.jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
-<body>
+<body class="font-sans text-slate-700 bg-white antialiased">
 
-  <!-- ===== STICKY NAVBAR ===== -->
-  <header class="sticky top-0 z-50 bg-brand-blue/95 backdrop-blur-md text-white shadow-lg border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between py-2 md:py-0 md:h-16">
-      <a href="#home" class="nav-logo flex items-center gap-2.5">
-        <img src="assets/logo.jpeg" alt="Saansa Engineering & Tech Solution logo" />
-        <span class="hidden sm:block leading-tight">
-          <span class="font-bold text-base tracking-tight block">SAANSA</span>
-          <span class="text-[8px] text-slate-300 font-light tracking-[0.2em] uppercase block">Engineering & Tech</span>
-        </span>
-      </a>
-
-      <nav class="hidden md:flex items-center space-x-5 lg:space-x-7 text-sm font-medium">
-        <a href="#home" class="nav-link text-white/90">Home</a>
-        <a href="#services" class="nav-link text-white/90">Services</a>
-        <a href="#projects" class="nav-link text-white/90">Our Projects</a>
-        <a href="#about" class="nav-link text-white/90">About</a>
-        <a href="#contact" class="nav-link text-white/90">Contact</a>
-      </nav>
-
-      <div class="flex items-center gap-3">
-        <a href="tel:+9779846285132" class="hidden sm:inline-flex items-center gap-1.5 bg-brand-accent/20 hover:bg-brand-accent/30 text-white border border-white/20 font-medium px-3 py-1.5 rounded-full text-sm transition-all duration-200">
-          <span class="text-xs">📞</span> +977-9846285132
-        </a>
-        <button id="mobileMenuBtn" class="md:hidden text-white focus:outline-none text-2xl leading-none">☰</button>
-      </div>
-    </div>
-
-    <div id="mobileMenu" class="md:hidden bg-brand-blue/95 backdrop-blur-md border-t border-white/10 px-4 py-3 hidden flex-col space-y-2 text-sm font-medium">
-      <a href="#home" class="nav-link text-white/90 block py-1">Home</a>
-      <a href="#services" class="nav-link text-white/90 block py-1">Services</a>
-      <a href="#projects" class="nav-link text-white/90 block py-1">Our Projects</a>
-      <a href="#about" class="nav-link text-white/90 block py-1">About</a>
-      <a href="#contact" class="nav-link text-white/90 block py-1">Contact</a>
-      <a href="tel:+9779846285132" class="inline-flex items-center gap-2 bg-brand-accent/20 text-white border border-white/20 font-medium px-4 py-2 rounded-full text-sm transition justify-center">
-        📞 +977-9846285132
-      </a>
-    </div>
-  </header>
-
-  <!-- ===== HOME / HERO ===== -->
-  <section id="home" class="hero-glow text-white pt-16 pb-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20 mix-blend-overlay">
-      <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1400&q=80" alt="Engineering consultancy" class="w-full h-full object-cover" />
-    </div>
-    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-
-    <div class="max-w-7xl mx-auto relative z-10">
-      <div class="text-center space-y-6 max-w-4xl mx-auto">
-        <span class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide text-white/90 uppercase">
-          Engineering Consultancy · Pokhara, Nepal
-        </span>
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1]">
-          Engineering <span class="gradient-text">Greater Possibilities</span> Across Nepal
-        </h1>
-        <p class="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed">
-          High-precision technical consultancy, specialized industrial equipment supply, and turn-key installation — delivered with international standards and local expertise.
-        </p>
-
-        <div class="pt-2 flex flex-wrap items-center justify-center gap-3">
-          <a href="#contact" class="inline-flex items-center gap-2 bg-brand-accent hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-full text-sm shadow-lg shadow-brand-accent/20 transition-all duration-200">
-            Get a Free Quote →
-          </a>
-          <a href="#services" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold px-6 py-3 rounded-full text-sm backdrop-blur-sm transition-all duration-200">
-            Explore Services
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== STATS BAR — floats between hero and services ===== -->
-  <div class="stats-bar px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto bg-white rounded-2xl shadow-2xl border border-slate-200/60 grid grid-cols-2 md:grid-cols-4 divide-x divide-slate-100">
-      <div class="p-5 md:p-7 text-center">
-        <div class="stat-num text-brand-blue">3<span class="text-brand-accent">+</span></div>
-        <div class="text-slate-500 text-xs font-semibold uppercase tracking-wide mt-1">Years of Experience</div>
-      </div>
-      <div class="p-5 md:p-7 text-center">
-        <div class="stat-num text-brand-blue">30<span class="text-brand-accent">+</span></div>
-        <div class="text-slate-500 text-xs font-semibold uppercase tracking-wide mt-1">Projects Completed</div>
-      </div>
-      <div class="p-5 md:p-7 text-center border-t md:border-t-0 divide-slate-100">
-        <div class="stat-num text-brand-blue">5</div>
-        <div class="text-slate-500 text-xs font-semibold uppercase tracking-wide mt-1">In-house Engineers</div>
-      </div>
-      <div class="p-5 md:p-7 text-center border-t md:border-t-0">
-        <div class="stat-num text-brand-blue">20<span class="text-brand-accent">+</span></div>
-        <div class="text-slate-500 text-xs font-semibold uppercase tracking-wide mt-1">Institutional Clients Served</div>
-      </div>
+  <!-- Top bar -->
+  <div class="hidden md:block bg-brand-900 text-brand-100 text-xs">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between">
+      <span>Pokhara, Nepal &nbsp;·&nbsp; Licensed engineering consultancy</span>
+      <span>
+        <a href="tel:+9779846285132" class="hover:text-white">+977-9846285132</a>
+        &nbsp;·&nbsp;
+        <a href="mailto:saansaengineering@gmail.com" class="hover:text-white">saansaengineering@gmail.com</a>
+      </span>
     </div>
   </div>
 
-  <!-- ===== WHAT WE DO ===== -->
-  <section class="pt-16 pb-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <span class="inline-block section-badge text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">What We Do</span>
-      <h2 class="text-3xl font-bold text-brand-blue">Two Disciplines, One Standard of Precision</h2>
-      <p class="text-slate-500 mt-1 max-w-2xl mx-auto text-sm">From detailed engineering to hands-on machinery work, we cover the full lifecycle of your project.</p>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between" aria-label="Main">
+      <a href="#home" class="flex items-center gap-3">
+        <img src="assets/logo.jpeg" alt="Saansa Engineering logo" class="h-14 w-auto rounded object-contain">
+        <span class="hidden sm:flex h-14 flex-col justify-center">
+          <span class="block h-7 leading-7 text-xl font-extrabold text-brand-800">Engineering</span>
+          <span class="block h-7 leading-7 text-base font-semibold text-slate-600">and Tech Solutions</span>
+        </span>
+      </a>
+      <ul class="hidden lg:flex items-center gap-8 text-sm font-medium">
+        <li><a class="hover:text-brand-700" href="#home">Home</a></li>
+        <li><a class="hover:text-brand-700" href="#services">Services</a></li>
+        <li><a class="hover:text-brand-700" href="#maintenance">Maintenance</a></li>
+        <li><a class="hover:text-brand-700" href="#process">Approach</a></li>
+        <li><a class="hover:text-brand-700" href="#track-record">Track Record</a></li>
+        <li><a class="hover:text-brand-700" href="#about">About</a></li>
+        <li><a class="hover:text-brand-700" href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="hidden lg:inline-block bg-accent hover:bg-orange-600 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition">Request a Quote</a>
+      <button id="menuBtn" class="lg:hidden p-2 rounded-md hover:bg-slate-100" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white">
+      <ul class="px-6 py-4 space-y-3 text-sm font-medium">
+        <li><a href="#home" class="block">Home</a></li>
+        <li><a href="#services" class="block">Services</a></li>
+        <li><a href="#maintenance" class="block">Maintenance</a></li>
+        <li><a href="#process" class="block">Approach</a></li>
+        <li><a href="#track-record" class="block">Track Record</a></li>
+        <li><a href="#about" class="block">About</a></li>
+        <li><a href="#contact" class="block text-accent font-semibold">Request a Quote</a></li>
+      </ul>
     </div>
+  </header>
 
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="whatwedo-card rounded-2xl p-6 lg:p-8 shadow-soft hover-lift transition-all duration-300">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-11 h-11 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl">📋</div>
-          <h3 class="text-xl font-bold text-brand-blue">Engineering</h3>
-        </div>
-        <ul class="service-list space-y-1.5 text-slate-600 text-sm">
-          <li><span class="font-semibold text-brand-blue">Valuation</span> – precise asset & project valuation</li>
-          <li><span class="font-semibold text-brand-blue">Cost Estimation</span> – accurate budgeting & planning</li>
-          <li><span class="font-semibold text-brand-blue">Detail Engineering</span> – in-depth design & drawings</li>
-          <li><span class="font-semibold text-brand-blue">Construction Supervision</span> – on-site quality control</li>
-          <li><span class="font-semibold text-brand-blue">Final Billing</span> – meticulous project close-out</li>
-        </ul>
-        <div class="mt-4 pt-3 border-t border-slate-100">
-          <span class="inline-block bg-brand-accent/10 text-brand-accent text-[10px] font-bold px-3 py-1 rounded-full">End-to-end support</span>
-        </div>
-      </div>
-
-      <div class="whatwedo-card rounded-2xl p-6 lg:p-8 shadow-soft hover-lift transition-all duration-300">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-11 h-11 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl">🔧</div>
-          <h3 class="text-xl font-bold text-brand-blue">Machinery & Equipment Solutions</h3>
-        </div>
-        <ul class="service-list space-y-1.5 text-slate-600 text-sm">
-          <li><span class="font-semibold text-brand-blue">Supply & Installation</span> – machinery and spare parts</li>
-          <li><span class="font-semibold text-brand-blue">Repair & Maintenance</span> – comprehensive servicing</li>
-          <li><span class="font-semibold text-brand-blue">Design Modification</span> – upgrades and retrofits</li>
-          <li><span class="font-semibold text-brand-blue">Fabrication Works</span> – custom structural modifications</li>
-          <li><span class="font-semibold text-brand-blue">Equipment Overhaul</span> – full refurbishment</li>
-        </ul>
-        <div class="mt-4 pt-3 border-t border-slate-100">
-          <span class="inline-block bg-brand-accent/10 text-brand-accent text-[10px] font-bold px-3 py-1 rounded-full">Reliable · Efficient · Precision</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== OUR CLIENTS ===== -->
-  <section class="py-16 bg-slate-50 border-y border-slate-200/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <span class="inline-block section-badge text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Trusted By</span>
-        <h2 class="text-3xl font-bold text-brand-blue">Institutions We've Served</h2>
-        <p class="text-slate-500 mt-1 max-w-2xl mx-auto text-sm">Over 3 years, we've built lasting relationships with cooperatives, financial institutions, and government bodies across Nepal.</p>
-      </div>
-
-      <div class="grid sm:grid-cols-3 gap-6">
-        <div class="bg-white rounded-2xl p-7 text-center shadow-soft border border-slate-200/70 hover-lift transition-all duration-300">
-          <div class="w-14 h-14 mx-auto bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-4">🏦</div>
-          <div class="text-3xl font-extrabold text-brand-blue mb-1">10<span class="text-brand-accent">+</span></div>
-          <h3 class="font-bold text-brand-blue text-sm uppercase tracking-wide">Cooperatives (Sahakari)</h3>
-        </div>
-        <div class="bg-white rounded-2xl p-7 text-center shadow-soft border border-slate-200/70 hover-lift transition-all duration-300">
-          <div class="w-14 h-14 mx-auto bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-4">🏛️</div>
-          <div class="text-3xl font-extrabold text-brand-blue mb-1">2</div>
-          <h3 class="font-bold text-brand-blue text-sm uppercase tracking-wide">Banks</h3>
-        </div>
-        <div class="bg-white rounded-2xl p-7 text-center shadow-soft border border-slate-200/70 hover-lift transition-all duration-300">
-          <div class="w-14 h-14 mx-auto bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-4">🏢</div>
-          <div class="text-3xl font-extrabold text-brand-blue mb-1">10<span class="text-brand-accent">+</span></div>
-          <h3 class="font-bold text-brand-blue text-sm uppercase tracking-wide">Government Offices & Institutions</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-14">
-      <span class="inline-block section-badge text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Core Capabilities</span>
-      <h2 class="text-3xl font-bold text-brand-blue">Our Service Pillars</h2>
-      <p class="text-slate-500 mt-1 max-w-2xl mx-auto text-sm">Comprehensive engineering and technological services tailored for institutional & commercial projects.</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
-        <div class="h-40 overflow-hidden bg-slate-200">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80" alt="Engineering supply" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-        </div>
-        <div class="p-5">
-          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">⚙️</div>
-          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Engineering Supply</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">Sourcing certified engineering components, materials, and hardware ensuring international quality.</p>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
-        <div class="h-40 overflow-hidden bg-slate-200">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Procurement management" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-        </div>
-        <div class="p-5">
-          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">📦</div>
-          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Procurement Management</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">End-to-end strategic procurement, vendor management, and cost-effective acquisition.</p>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
-        <div class="h-40 overflow-hidden bg-slate-200">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Engineering consultancy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-        </div>
-        <div class="p-5">
-          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">📐</div>
-          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Engineering Consultancy</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">Expert advisory, feasibility studies, structural/electro-mechanical design, and technical audit.</p>
-        </div>
-      </div>
-      <div class="group bg-white rounded-2xl shadow-soft border border-slate-200/70 hover-lift transition-all duration-300 hover:border-brand-accent/20 overflow-hidden">
-        <div class="h-40 overflow-hidden bg-slate-200">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Supply & installation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-        </div>
-        <div class="p-5">
-          <div class="w-10 h-10 bg-brand-blue/5 text-brand-blue rounded-xl flex items-center justify-center text-xl mb-3 group-hover:bg-brand-accent/10 group-hover:text-brand-accent transition-colors">🔧</div>
-          <h3 class="text-lg font-bold text-brand-blue mb-1.5">Machinery & Equipment</h3>
-          <p class="text-slate-600 text-sm leading-relaxed">Supply, installation, repair, maintenance, design modification, and fabrication of industrial machinery.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== HOW WE WORK (process) ===== -->
-  <section class="py-20 bg-brand-blue text-white relative overflow-hidden">
-    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4"></div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center mb-14">
-        <span class="inline-block bg-white/10 border border-white/20 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Our Process</span>
-        <h2 class="text-3xl font-bold text-white">How We Work</h2>
-        <p class="text-slate-300 mt-1 max-w-2xl mx-auto text-sm">A clear, structured process from first consultation to final handover.</p>
-      </div>
-
-      <div class="grid md:grid-cols-4 gap-8">
-        <div class="process-step">
-          <div class="process-num text-white/10">01</div>
-          <h3 class="text-lg font-bold text-white -mt-6 mb-2">Consultation</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Understand your requirements, site conditions, and project goals.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num text-white/10">02</div>
-          <h3 class="text-lg font-bold text-white -mt-6 mb-2">Design & Planning</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Feasibility studies, cost estimation, and detailed engineering drawings.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num text-white/10">03</div>
-          <h3 class="text-lg font-bold text-white -mt-6 mb-2">Execution</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Procurement, supply, installation, and on-site fabrication work.</p>
-        </div>
-        <div class="process-step">
-          <div class="process-num text-white/10">04</div>
-          <h3 class="text-lg font-bold text-white -mt-6 mb-2">Handover & Support</h3>
-          <p class="text-slate-300 text-sm leading-relaxed">Final billing, commissioning, and ongoing maintenance support.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== OUR PROJECTS ===== -->
-  <section id="projects" class="py-20 bg-slate-100/60 border-b border-slate-200/40">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-14">
-        <span class="inline-block section-badge text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Portfolio</span>
-        <h2 class="text-3xl font-bold text-brand-blue">Our Projects</h2>
-        <p class="text-slate-500 mt-1 max-w-2xl mx-auto text-sm">Delivering excellence across engineering, procurement, and installation for diverse clients.</p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="project-card bg-white rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80" alt="Infrastructure project" class="w-full h-48 object-cover" />
-          <div class="p-5">
-            <h4 class="font-bold text-brand-blue text-lg">Infrastructure Development</h4>
-            <p class="text-slate-600 text-sm mt-1">Complete engineering consultancy and construction supervision for municipal infrastructure projects in Gandaki Province.</p>
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero-bg relative text-white">
+      <div class="grid-lines absolute inset-0"></div>
+      <div class="relative max-w-7xl mx-auto px-6 py-24 lg:py-32 grid lg:grid-cols-5 gap-12 items-center">
+        <div class="lg:col-span-3">
+          <p class="inline-block text-xs font-semibold tracking-widest uppercase bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">Engineering consultancy · Pokhara, Nepal</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+            From design to final billing, <span class="text-orange-300">one reliable engineering partner.</span>
+          </h1>
+          <p class="mt-6 text-lg text-blue-100 max-w-2xl">
+            Insurance survey, property valuation, municipal drawings, and civil, mechanical and electrical design, delivered with technical rigour and clear documentation for banks, local governments and private clients.
+          </p>
+          <div class="mt-9 flex flex-wrap gap-4">
+            <a href="#contact" class="bg-accent hover:bg-orange-600 font-semibold px-7 py-3.5 rounded-lg transition">Request a Quote</a>
+            <a href="#services" class="border border-white/40 hover:bg-white/10 font-semibold px-7 py-3.5 rounded-lg transition">Explore Services</a>
           </div>
         </div>
-        <div class="project-card bg-white rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80" alt="Industrial equipment supply" class="w-full h-48 object-cover" />
-          <div class="p-5">
-            <h4 class="font-bold text-brand-blue text-lg">Industrial Equipment Supply</h4>
-            <p class="text-slate-600 text-sm mt-1">Procurement and supply of heavy machinery and specialized equipment for manufacturing plants across Nepal.</p>
-          </div>
-        </div>
-        <div class="project-card bg-white rounded-2xl shadow-soft border border-slate-200/60 overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80" alt="Turnkey installation" class="w-full h-48 object-cover" />
-          <div class="p-5">
-            <h4 class="font-bold text-brand-blue text-lg">Turnkey Installation</h4>
-            <p class="text-slate-600 text-sm mt-1">End-to-end installation and commissioning of technical plant equipment for commercial and industrial clients.</p>
+        <div class="lg:col-span-2">
+          <div class="bg-white/10 border border-white/20 backdrop-blur rounded-2xl p-7">
+            <p class="text-sm font-semibold uppercase tracking-wider text-blue-100 mb-5">Trusted by</p>
+            <ul class="space-y-4 text-sm">
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-orange-300 shrink-0"></span><span><strong>5 financial institutions</strong> for property valuation</span></li>
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-orange-300 shrink-0"></span><span><strong>25+ local-level governments</strong> across civil, mechanical and electrical projects</span></li>
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-orange-300 shrink-0"></span><span><strong>Insurance companies</strong> for survey and loss assessment</span></li>
+            </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== ABOUT ===== -->
-  <section id="about" class="bg-white py-20 border-b border-slate-200/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+    <!-- Stats -->
+    <section class="bg-white border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div><p class="text-4xl font-extrabold text-brand-800">25+</p><p class="text-sm text-slate-500 mt-1">Local-level projects completed</p></div>
+        <div><p class="text-4xl font-extrabold text-brand-800">5</p><p class="text-sm text-slate-500 mt-1">Financial institutions served</p></div>
+        <div><p class="text-4xl font-extrabold text-brand-800">3</p><p class="text-sm text-slate-500 mt-1">Engineering disciplines in-house</p></div>
+        <div><p class="text-4xl font-extrabold text-brand-800">End-to-end</p><p class="text-sm text-slate-500 mt-1">Design to supervision to billing</p></div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-teal2-600">What we do</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900">Engineering services built around your project</h2>
+          <p class="mt-4 text-slate-600">Six core services, each handled by qualified engineers with the documentation, drawings and reports that banks, insurers and approving authorities expect.</p>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <article class="card bg-white rounded-xl border border-slate-200 p-7">
+            <div class="h-12 w-12 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center mb-5">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.6-4A11.96 11.96 0 0112 2.9 11.96 11.96 0 013.4 6 12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.1-2-.4-3z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-brand-900">Insurance Surveyor</h3>
+            <p class="mt-2 text-sm text-slate-600">Independent survey and loss assessment for insurance claims, with detailed, defensible reports covering cause, extent and quantum of loss.</p>
+          </article>
+
+          <article class="card bg-white rounded-xl border border-slate-200 p-7">
+            <div class="h-12 w-12 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center mb-5">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-brand-900">Property Valuation</h3>
+            <p class="mt-2 text-sm text-slate-600">Technical valuation of land, buildings and plant for bank lending, collateral and transactions, prepared for financial institution requirements.</p>
+          </article>
+
+          <article class="card bg-white rounded-xl border border-slate-200 p-7">
+            <div class="h-12 w-12 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center mb-5">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M7 3h7l5 5v13H7V3z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-brand-900">Municipal Drawing</h3>
+            <p class="mt-2 text-sm text-slate-600">Building drawings prepared to municipal bylaws and the building code, ready for submission and approval.</p>
+          </article>
+
+          <article class="card bg-white rounded-xl border border-slate-200 p-7">
+            <div class="h-12 w-12 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center mb-5">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 20h16M6 20V10l6-6 6 6v10M10 20v-5h4v5"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-brand-900">Design</h3>
+            <p class="mt-2 text-sm text-slate-600">Architectural and structural design with drawings, bills of quantities and specifications that contractors can build from.</p>
+          </article>
+
+          <article class="card bg-white rounded-xl border border-slate-200 p-7">
+            <div class="h-12 w-12 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center mb-5">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-brand-900">MEP Design</h3>
+            <p class="mt-2 text-sm text-slate-600">Mechanical, electrical and plumbing design coordinated with the architecture and structure to avoid clashes on site.</p>
+          </article>
+
+          <article class="card bg-white rounded-xl border border-slate-200 p-7">
+            <div class="h-12 w-12 rounded-lg bg-brand-50 text-brand-700 flex items-center justify-center mb-5">
+              <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.9M9 20H4v-2a4 4 0 013-3.9m6-6.1a4 4 0 11-8 0 4 4 0 018 0zm6 2a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-brand-900">Consultancy &amp; Supervision</h3>
+            <p class="mt-2 text-sm text-slate-600">Support from design and specification through work supervision, quality checks and final billing for public and private projects.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Equipment maintenance -->
+    <section id="maintenance" class="py-20 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-2">
+          <p class="text-sm font-semibold uppercase tracking-widest text-teal2-600">Maintenance</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900">Maintenance service of equipment</h2>
+          <p class="mt-4 text-slate-600">Equipment lasts longer and fails less when it is serviced on schedule. We inspect, service and repair building and plant equipment, with clear records of what was done and what needs attention next.</p>
+          <a href="#contact" class="inline-block mt-6 text-brand-700 font-semibold hover:underline">Request a maintenance visit &rarr;</a>
+        </div>
+        <div class="lg:col-span-3 grid sm:grid-cols-2 gap-5">
+          <div class="card rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-bold text-brand-900">Electrical systems</h3>
+            <p class="mt-2 text-sm text-slate-600">Inspection, testing and servicing of panels, wiring, lighting and power systems.</p>
+          </div>
+          <div class="card rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-bold text-brand-900">Mechanical equipment</h3>
+            <p class="mt-2 text-sm text-slate-600">Servicing of pumps, generators, ventilation and other plant.</p>
+          </div>
+          <div class="card rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-bold text-brand-900">Plumbing &amp; water systems</h3>
+            <p class="mt-2 text-sm text-slate-600">Leak detection, repair and upkeep of piping and water-supply systems.</p>
+          </div>
+          <div class="card rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <h3 class="font-bold text-brand-900">Preventive maintenance</h3>
+            <p class="mt-2 text-sm text-slate-600">Scheduled inspections and condition reports to catch problems early.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-teal2-600">Our approach</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900">A clear process from brief to final bill</h2>
+        </div>
+        <ol class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <li class="relative rounded-xl border border-slate-200 p-6">
+            <span class="text-3xl font-extrabold text-brand-100">01</span>
+            <h3 class="mt-2 font-bold text-brand-900">Understand</h3>
+            <p class="mt-2 text-sm text-slate-600">Site visit, requirements and scope agreed in writing before work begins.</p>
+          </li>
+          <li class="relative rounded-xl border border-slate-200 p-6">
+            <span class="text-3xl font-extrabold text-brand-100">02</span>
+            <h3 class="mt-2 font-bold text-brand-900">Design &amp; Specify</h3>
+            <p class="mt-2 text-sm text-slate-600">Drawings, estimates and specifications prepared to applicable codes.</p>
+          </li>
+          <li class="relative rounded-xl border border-slate-200 p-6">
+            <span class="text-3xl font-extrabold text-brand-100">03</span>
+            <h3 class="mt-2 font-bold text-brand-900">Supervise</h3>
+            <p class="mt-2 text-sm text-slate-600">On-site supervision and quality checks to keep work to specification.</p>
+          </li>
+          <li class="relative rounded-xl border border-slate-200 p-6">
+            <span class="text-3xl font-extrabold text-brand-100">04</span>
+            <h3 class="mt-2 font-bold text-brand-900">Verify &amp; Bill</h3>
+            <p class="mt-2 text-sm text-slate-600">Measurement, verification and final billing with complete records.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Track record -->
+    <section id="track-record" class="py-20 bg-brand-900 text-white relative overflow-hidden">
+      <div class="grid-lines absolute inset-0"></div>
+      <div class="relative max-w-7xl mx-auto px-6">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-widest text-orange-300">Track record</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold">Work we have completed</h2>
+          <p class="mt-4 text-blue-100">A selection of the work our clients have trusted us with.</p>
+        </div>
+        <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="rounded-xl bg-white/5 border border-white/15 p-7">
+            <p class="text-3xl font-extrabold text-orange-300">5</p>
+            <h3 class="mt-1 font-bold">Financial institutions</h3>
+            <p class="mt-2 text-sm text-blue-100">Property valuation services delivered for five banks and financial institutions.</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/15 p-7">
+            <p class="text-3xl font-extrabold text-orange-300">25+</p>
+            <h3 class="mt-1 font-bold">Local-level governments</h3>
+            <p class="mt-2 text-sm text-blue-100">Consultancy completed for over twenty-five local levels across civil, mechanical and electrical engineering.</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/15 p-7">
+            <p class="text-3xl font-extrabold text-orange-300">Civil</p>
+            <h3 class="mt-1 font-bold">Buildings &amp; infrastructure</h3>
+            <p class="mt-2 text-sm text-blue-100">Design, specification, estimation and supervision of civil works.</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/15 p-7">
+            <p class="text-3xl font-extrabold text-orange-300">MEP</p>
+            <h3 class="mt-1 font-bold">Mechanical &amp; electrical</h3>
+            <p class="mt-2 text-sm text-blue-100">Electrical, plumbing and mechanical system design coordinated with building design.</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/15 p-7">
+            <p class="text-3xl font-extrabold text-orange-300">Claims</p>
+            <h3 class="mt-1 font-bold">Insurance surveys</h3>
+            <p class="mt-2 text-sm text-blue-100">Survey and loss assessment reports prepared for insurance claims.</p>
+          </div>
+          <div class="rounded-xl bg-white/5 border border-white/15 p-7">
+            <p class="text-3xl font-extrabold text-orange-300">Permits</p>
+            <h3 class="mt-1 font-bold">Municipal approvals</h3>
+            <p class="mt-2 text-sm text-blue-100">Building drawings prepared for municipal submission and approval.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-widest text-teal2-600">About us</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900">Engineers who stay with the project to the end</h2>
+          <p class="mt-5 text-slate-600">Saansa Engineering and Tech Solutions Private Limited is an engineering consultancy based in Pokhara, Nepal. We combine civil, mechanical and electrical expertise so clients deal with one team from the first drawing to the final bill.</p>
+          <ul class="mt-7 space-y-4 text-sm">
+            <li class="flex gap-3"><span class="mt-0.5 text-teal2-600 font-bold">&#10003;</span><span><strong class="text-brand-900">Multi-discipline team.</strong> Civil, mechanical and electrical under one roof.</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-teal2-600 font-bold">&#10003;</span><span><strong class="text-brand-900">Trusted by institutions.</strong> Banks and local governments rely on our reports and designs.</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-teal2-600 font-bold">&#10003;</span><span><strong class="text-brand-900">Documented work.</strong> Clear drawings, specifications and reports at every stage.</span></li>
+            <li class="flex gap-3"><span class="mt-0.5 text-teal2-600 font-bold">&#10003;</span><span><strong class="text-brand-900">Code compliant.</strong> Designs prepared to Nepal's building code and municipal bylaws.</span></li>
+          </ul>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-xl">
+          <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1000&q=70" alt="Engineers reviewing building plans" class="w-full h-full object-cover" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-12">
+        <div class="lg:col-span-2">
+          <p class="text-sm font-semibold uppercase tracking-widest text-teal2-600">Contact</p>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-brand-900">Tell us about your project</h2>
+          <p class="mt-4 text-slate-600">Send a few details and we will reply with next steps and a quotation.</p>
+          <dl class="mt-8 space-y-5 text-sm">
+            <div><dt class="font-semibold text-brand-900">Office</dt><dd class="text-slate-600">Pokhara, Gandaki Province, Nepal</dd></div>
+            <div><dt class="font-semibold text-brand-900">Phone</dt><dd><a class="text-brand-700 hover:underline" href="tel:+9779846285132">+977-9846285132</a></dd></div>
+            <div><dt class="font-semibold text-brand-900">Email</dt><dd><a class="text-brand-700 hover:underline" href="mailto:saansaengineering@gmail.com">saansaengineering@gmail.com</a></dd></div>
+          </dl>
+        </div>
+
+        <form id="contactForm" class="lg:col-span-3 bg-white rounded-2xl border border-slate-200 p-7 sm:p-9 shadow-sm space-y-5" novalidate>
+          <div class="grid sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-slate-800 mb-1.5">Full name</label>
+              <input id="name" name="from_name" type="text" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600">
+            </div>
+            <div>
+              <label for="phone" class="block text-sm font-medium text-slate-800 mb-1.5">Phone</label>
+              <input id="phone" name="phone" type="tel" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600">
+            </div>
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-slate-800 mb-1.5">Email</label>
+            <input id="email" name="reply_to" type="email" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600">
+          </div>
+          <div>
+            <label for="service" class="block text-sm font-medium text-slate-800 mb-1.5">Service needed</label>
+            <select id="service" name="service" class="w-full rounded-lg border border-slate-300 px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-brand-600">
+              <option>Insurance Surveyor</option>
+              <option>Property Valuation</option>
+              <option>Municipal Drawing</option>
+              <option>Design</option>
+              <option>MEP Design</option>
+              <option>Consultancy &amp; Supervision</option>
+              <option>Equipment Maintenance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-slate-800 mb-1.5">Project details</label>
+            <textarea id="message" name="message" rows="4" required class="w-full rounded-lg border border-slate-300 px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-brand-600"></textarea>
+          </div>
+          <button id="submitBtn" type="submit" class="w-full bg-brand-700 hover:bg-brand-800 text-white font-semibold py-3.5 rounded-lg transition">Send Message</button>
+          <p id="formStatus" class="text-sm text-center min-h-[1.25rem]" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-brand-900 text-blue-100">
+    <div class="max-w-7xl mx-auto px-6 py-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 text-sm">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-3">
+          <img src="assets/logo.jpeg" alt="" class="h-14 w-auto rounded object-contain">
+          <span class="flex h-14 flex-col justify-center">
+            <span class="block h-7 leading-7 text-xl font-extrabold text-white">Engineering</span>
+            <span class="block h-7 leading-7 text-base font-semibold text-blue-200">and Tech Solutions Private Limited</span>
+          </span>
+        </div>
+        <p class="mt-4 max-w-md text-blue-200">Insurance survey, valuation, municipal drawing, design, MEP and consultancy services from Pokhara, Nepal.</p>
+      </div>
       <div>
-        <span class="inline-block text-brand-accent font-bold text-xs uppercase tracking-[0.2em] mb-2">Who We Are</span>
-        <h2 class="text-4xl font-bold text-brand-blue mt-1 mb-4 leading-tight">Engineering Excellence<br />Rooted in Nepal</h2>
-        <p class="text-slate-600 leading-relaxed mb-4 text-base">
-          <span class="font-semibold text-brand-blue">Saansa Engineering & Tech Solution Pvt. Ltd.</span> is a premier engineering consultancy and procurement firm headquartered in Pokhara, Kaski. Established with a vision to bridge the gap between international engineering standards and local execution, we bring together a team of certified technical professionals with decades of combined experience across infrastructure, industrial, and commercial sectors.
-        </p>
-        <p class="text-slate-600 leading-relaxed mb-5 text-base">
-          Our commitment to precision, integrity, and client-centric solutions has made us a trusted partner for public and private sector clients alike. From detailed feasibility studies and cost estimation to turnkey installation and project handover, we deliver end-to-end engineering services that adhere to the highest quality benchmarks.
-        </p>
-        <ul class="space-y-2.5 text-slate-700 font-medium text-sm">
-          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> Registered Engineering Enterprise · Government of Nepal</li>
-          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> Certified Technical Personnel with International Exposure</li>
-          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> Proven Track Record in Procurement & Turnkey Execution</li>
-          <li class="flex items-center gap-3"><span class="w-2 h-2 bg-brand-accent rounded-full inline-block"></span> Committed to Safety, Sustainability & Client Satisfaction</li>
+        <h4 class="font-semibold text-white mb-3">Services</h4>
+        <ul class="space-y-2">
+          <li>Insurance Surveyor</li><li>Property Valuation</li><li>Municipal Drawing</li><li>Design &amp; MEP Design</li><li>Consultancy &amp; Supervision</li><li>Equipment Maintenance</li>
         </ul>
       </div>
-
-      <div class="glass-card p-6 rounded-2xl shadow-xl border border-white/40 backdrop-blur-sm bg-white/80">
-        <img src="https://images.unsplash.com/photo-1571624436279-b272aff752b5?w=800&q=80" alt="Engineering team" class="rounded-xl w-full h-52 object-cover shadow-md mb-5" />
-        <h3 class="text-2xl font-bold text-brand-blue border-b border-slate-200/60 pb-3 mb-4 flex items-center gap-2">
-          <span class="text-brand-accent">⏺</span> Company Information
-        </h3>
-        <div class="space-y-3.5 text-sm">
-          <div>
-            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Registered Address</span>
-            <span class="font-semibold text-slate-800">Pokhara - 08, Kaski, Gandaki Province, Nepal</span>
-          </div>
-          <div>
-            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Primary Focus</span>
-            <span class="font-semibold text-slate-800">Engineering Consultancy, Strategic Procurement & Equipment Installation</span>
-          </div>
-          <div class="pt-2 flex gap-2 flex-wrap">
-            <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-3 py-1.5 rounded-full">ISO-compliant Practices</span>
-            <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-3 py-1.5 rounded-full">Industrial & Infrastructure Experts</span>
-            <span class="bg-brand-blue/10 text-brand-blue text-[10px] font-bold px-3 py-1.5 rounded-full">Client-First Approach</span>
-          </div>
-        </div>
+      <div>
+        <h4 class="font-semibold text-white mb-3">Quick links</h4>
+        <ul class="space-y-2">
+          <li><a class="hover:text-white" href="#services">Services</a></li>
+          <li><a class="hover:text-white" href="#track-record">Track Record</a></li>
+          <li><a class="hover:text-white" href="#about">About</a></li>
+          <li><a class="hover:text-white" href="#contact">Contact</a></li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <!-- ===== CONTACT with EmailJS (UNCHANGED) ===== -->
-  <section id="contact" class="py-16 max-w-4xl mx-auto px-4">
-    <div class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 border border-slate-200/60 relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-24 h-1 bg-gradient-to-r from-brand-accent to-orange-400 rounded-br-full"></div>
-      <div class="text-center mb-8">
-        <span class="inline-block section-badge text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">Let's work together</span>
-        <h2 class="text-3xl font-bold text-brand-blue">Contact Our Engineering Team</h2>
-        <p class="text-slate-500 mt-1 text-sm">Send us your project requirements or RFQs directly.</p>
-        <div class="mt-2 inline-flex items-center gap-2 bg-brand-blue/5 px-4 py-2 rounded-full text-brand-blue font-medium text-sm border border-brand-blue/10">
-          📞 +977-9846285132
-        </div>
-      </div>
-
-      <!-- FORM with EmailJS integration -->
-      <form id="contactForm" class="space-y-5">
-        <input type="hidden" name="title" value="Website Inquiry - Saansa Engineering" />
-        
-        <div class="grid md:grid-cols-2 gap-5">
-          <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name / Organization</label>
-            <input type="text" name="name" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="e.g. ABC Construction" />
-          </div>
-          <div>
-            <label class="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
-            <input type="email" name="email" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="info@saansa.com" />
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Phone Number</label>
-          <input type="tel" name="phone" class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="+977-9846285132" />
-        </div>
-
-        <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Service Required</label>
-          <select name="service" class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 appearance-none text-sm">
-            <option value="Engineering Consultancy">Engineering Consultancy</option>
-            <option value="Procurement Management">Procurement Management</option>
-            <option value="Engineering Material Supply">Engineering Material Supply</option>
-            <option value="Machinery & Equipment Solutions">Machinery & Equipment Solutions</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-sm font-semibold text-slate-700 mb-1">Project Details / Message</label>
-          <textarea name="message" rows="4" required class="w-full border border-slate-300 rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-brand-blue/40 focus:border-transparent transition-shadow duration-200 bg-slate-50/50 text-sm" placeholder="Describe your project requirements in detail..."></textarea>
-        </div>
-
-        <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-brand-blue to-slate-800 hover:from-slate-800 hover:to-brand-blue text-white font-bold py-3.5 rounded-xl transition-all duration-300 shadow-xl shadow-brand-blue/10 hover:shadow-brand-blue/30 text-base tracking-wide flex items-center justify-center gap-2">
-          <span id="btnText">🚀 Submit Inquiry</span>
-          <span id="btnSpinner" class="hidden"><span class="spinner"></span></span>
-        </button>
-        
-        <!-- Status message -->
-        <div id="formStatus" class="text-center text-sm font-medium hidden"></div>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="bg-slate-900 text-slate-400 pt-14 pb-8 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-10 pb-10 border-b border-slate-800">
-        <div>
-          <a href="#home" class="footer-logo inline-flex items-center gap-2.5 mb-3">
-            <img src="assets/logo.jpeg" alt="Saansa Engineering & Tech Solution logo" />
-          </a>
-          <p class="text-slate-400 text-sm leading-relaxed">Engineering consultancy, procurement, and turnkey installation services headquartered in Pokhara, Nepal.</p>
-        </div>
-        <div>
-          <h4 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Quick Links</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#home" class="hover:text-brand-accent transition-colors">Home</a></li>
-            <li><a href="#services" class="hover:text-brand-accent transition-colors">Services</a></li>
-            <li><a href="#projects" class="hover:text-brand-accent transition-colors">Our Projects</a></li>
-            <li><a href="#about" class="hover:text-brand-accent transition-colors">About</a></li>
-            <li><a href="#contact" class="hover:text-brand-accent transition-colors">Contact</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Services</h4>
-          <ul class="space-y-2 text-sm">
-            <li>Engineering Consultancy</li>
-            <li>Procurement Management</li>
-            <li>Engineering Material Supply</li>
-            <li>Machinery & Equipment Solutions</li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="text-white font-semibold mb-3 text-sm uppercase tracking-wide">Contact</h4>
-          <ul class="space-y-2 text-sm">
-            <li>📍 Pokhara - 08, Kaski, Nepal</li>
-            <li>📞 <a href="tel:+9779846285132" class="hover:text-brand-accent transition-colors">+977-9846285132</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
-        <span>© Saansa Engineering and Tech Solution Pvt. Ltd. · Pokhara-08, Kaski, Nepal</span>
-        <span class="tracking-widest">📞 +977-9846285132</span>
-      </div>
+    <div class="border-t border-white/10 py-5 text-center text-xs text-blue-300">
+      &copy; <span id="year"></span> Saansa Engineering and Tech Solutions Private Limited All rights reserved.
     </div>
   </footer>
 
-  <!-- ===== EMAILJS INTEGRATION (UNCHANGED) ===== -->
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    (function() {
-      // ✅ Your EmailJS credentials
-      const PUBLIC_KEY = "B966OCPM23prG7g5F";
-      const SERVICE_ID = "service_62zb3py";
-      const TEMPLATE_ID = "template_80beklp";
-      
-      emailjs.init(PUBLIC_KEY);
+    // ---- Replace these with the values already used on your current site ----
+    var EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+    var EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+    var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    // -----------------------------------------------------------------------
 
-      const form = document.getElementById('contactForm');
-      const submitBtn = document.getElementById('submitBtn');
-      const btnText = document.getElementById('btnText');
-      const btnSpinner = document.getElementById('btnSpinner');
-      const formStatus = document.getElementById('formStatus');
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        submitBtn.disabled = true;
-        submitBtn.classList.add('btn-loading');
-        btnText.textContent = 'Sending...';
-        btnSpinner.classList.remove('hidden');
-        formStatus.className = 'hidden';
-
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
-          .then(function(response) {
-            formStatus.className = 'text-center text-sm font-medium text-green-600 bg-green-50 border border-green-200 rounded-xl p-3 mt-2 block';
-            formStatus.textContent = '✅ Thank you! Your message has been sent successfully. Our team will reach out within 24 hours.';
-            form.reset();
-            
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('btn-loading');
-            btnText.textContent = '🚀 Submit Inquiry';
-            btnSpinner.classList.add('hidden');
-          })
-          .catch(function(error) {
-            console.error('EmailJS Error:', error);
-            formStatus.className = 'text-center text-sm font-medium text-red-600 bg-red-50 border border-red-200 rounded-xl p-3 mt-2 block';
-            formStatus.textContent = '❌ Failed to send message. Please try again or call us directly.';
-            
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('btn-loading');
-            btnText.textContent = '🚀 Submit Inquiry';
-            btnSpinner.classList.add('hidden');
-          });
-      });
-    })();
-  </script>
-
-  <!-- Mobile menu toggle -->
-  <script>
-    document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
+    // Mobile menu
+    var menuBtn = document.getElementById('menuBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', function () {
+      var open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', String(open));
     });
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobileMenu')?.classList.add('hidden');
+    mobileMenu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
       });
     });
-  </script>
 
+    // Contact form
+    var COMPANY_EMAIL = 'saansaengineering@gmail.com';
+    var form = document.getElementById('contactForm');
+    var statusEl = document.getElementById('formStatus');
+    var btn = document.getElementById('submitBtn');
+    var emailjsReady = !!(window.emailjs && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' &&
+      EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' && EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID');
+    if (emailjsReady) { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); }
+
+    function setStatus(kind, text) {
+      var colors = { ok: 'text-green-600', err: 'text-red-600', info: 'text-slate-500' };
+      statusEl.className = 'text-sm text-center ' + colors[kind];
+      statusEl.textContent = text;
+    }
+
+    function sendByMailto() {
+      var v = function (id) { return form.elements[id].value.trim(); };
+      var subject = 'Website enquiry: ' + v('service');
+      var body = 'Name: ' + v('name') + '\nPhone: ' + v('phone') + '\nEmail: ' + v('email') +
+        '\nService: ' + v('service') + '\n\n' + v('message');
+      window.location.href = 'mailto:' + COMPANY_EMAIL + '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      setStatus('info', 'Opening your email app. Press send there to deliver your message.');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      if (!emailjsReady) { sendByMailto(); return; }
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      setStatus('info', '');
+      emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+        .then(function () {
+          setStatus('ok', 'Thank you. We have received your message and will reply soon.');
+          form.reset();
+        })
+        .catch(function () {
+          setStatus('err', 'Something went wrong. Please call +977-9846285132 or email ' + COMPANY_EMAIL + '.');
+        })
+        .finally(function () {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+        });
+    });
+  </script>
 </body>
 </html>
