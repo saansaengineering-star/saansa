@@ -1,0 +1,156 @@
+/* Works carousel: standalone stylesheet.
+   Works on its own. Every colour falls back to a built-in value, and picks up the
+   page's theme tokens (--ink, --surface, --tint, --line, --accent, --muted) when they exist.
+   Pair with js/carousel.js. Markup: see the #works-carousel block in index.html. */
+
+.carousel {
+  --cs-ink: var(--ink, #0F2C59);
+  --cs-text: var(--text, #1B2A44);
+  --cs-muted: var(--muted, #4F5F7A);
+  --cs-surface: var(--surface, #FFFFFF);
+  --cs-tint: var(--tint, #E6ECF5);
+  --cs-line: var(--line, #D3DBE8);
+  --cs-accent: var(--accent, #F86F03);
+  --cs-accent-text: var(--accent-text, #B04A00);
+  --cs-on-accent: var(--on-accent, #0B1F3F);
+
+  --cs-per-view: 1;     /* slides visible at once; read by carousel.js */
+  --cs-gap: 10px;       /* half the space between slides */
+  --cs-radius: 12px;
+  --cs-speed: 560ms;
+
+  position: relative;
+}
+@media (min-width: 700px)  { .carousel { --cs-per-view: 2; } }
+@media (min-width: 1060px) { .carousel { --cs-per-view: 3; } }
+
+/* Viewport clips the sliding track. The negative margin cancels the first slide's side gap
+   so the cards line up with the page gutter. */
+.cs-viewport {
+  overflow: hidden;
+  margin-inline: calc(var(--cs-gap) * -1);
+  touch-action: pan-y;          /* vertical scroll stays native, horizontal swipes go to the script */
+  cursor: grab;
+  border-radius: var(--cs-radius);
+}
+.carousel.is-dragging .cs-viewport { cursor: grabbing; user-select: none; -webkit-user-select: none; }
+.cs-viewport:focus-visible { outline: 3px solid var(--cs-accent); outline-offset: 4px; }
+
+.cs-track {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  will-change: transform;
+  transition: transform var(--cs-speed) cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+.cs-slide {
+  flex: 0 0 calc(100% / var(--cs-per-view));
+  min-width: 0;
+  padding-inline: var(--cs-gap);
+}
+
+/* Card */
+.cs-card {
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--cs-surface);
+  border: 1px solid var(--cs-line);
+  border-radius: var(--cs-radius);
+  overflow: hidden;
+}
+.cs-media {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: var(--cs-tint);
+}
+.cs-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+.cs-media svg { display: block; width: 100%; height: 100%; }   /* drawn illustration shown when no photo loads */
+.cs-body { padding: 16px 18px 20px; display: grid; gap: 6px; }
+.cs-place {
+  font-family: var(--font-mono, ui-monospace, Menlo, monospace);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cs-accent-text);
+}
+.cs-title {
+  margin: 0;
+  font-family: var(--font-display, system-ui, sans-serif);
+  font-size: 1.12rem;
+  line-height: 1.25;
+  color: var(--cs-ink);
+}
+.cs-text { margin: 0; font-size: 0.92rem; color: var(--cs-muted); }
+
+/* Controls */
+.cs-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  margin-top: 22px;
+}
+.cs-btn {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1.5px solid var(--cs-ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--cs-ink);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.cs-btn:hover { background: var(--cs-tint); }
+.cs-btn:focus-visible { outline: 3px solid var(--cs-accent); outline-offset: 3px; }
+.cs-btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cs-toggle { border-color: var(--cs-line); }
+.cs-toggle .ic-play { display: none; }
+.cs-toggle[aria-pressed="true"] .ic-play { display: block; }
+.cs-toggle[aria-pressed="true"] .ic-pause { display: none; }
+
+.cs-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; max-width: 100%; }
+.cs-dot {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.cs-dot::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--cs-line);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.cs-dot:hover::after { background: var(--cs-muted); }
+.cs-dot.is-active::after { width: 22px; background: var(--cs-accent); }
+.cs-dot:focus-visible { outline: 3px solid var(--cs-accent); outline-offset: 0; border-radius: 6px; }
+
+.carousel.is-single .cs-controls { display: none; }
+.carousel.is-single .cs-viewport { cursor: default; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-track { transition: none; }
+  .cs-dot::after, .cs-btn { transition: none; }
+}
